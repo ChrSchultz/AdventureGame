@@ -81,15 +81,17 @@ def enemy():
     global enemyMP
     global enemyname
     global i
-    enemynamechoice = ["Drac", "Ogre"]
-    max =[ 25, 20]
-    min = [8, 5]
+    enemynamechoice = ["Drac", "Ogre", "Ghost"]
+    max =[ 25, 20, 10]
+    min = [8, 5, 2]
     shuffle(enemynamechoice)
     enemyname = enemynamechoice[0]
     if enemyname == "Ogre":
       i=1
     elif enemyname == "Drac":
       i=0
+    elif enemyname == "Ghost":
+      i=2
     enemyHP = randint(min[i],max[i])
     enemyMP = randint(5,20)
     #Below is the enemy's name, perhaps you could change this to a list and then shuffle the list, such as we did for the villager above.
