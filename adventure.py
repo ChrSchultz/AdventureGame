@@ -80,10 +80,19 @@ def enemy():
     global enemyHP
     global enemyMP
     global enemyname
-    enemyHP = randint(5,20)
+    global i
+    enemynamechoice = ["Drac", "Ogre"]
+    max =[ 25, 20]
+    min = [8, 5]
+    shuffle(enemynamechoice)
+    enemyname = enemynamechoice[0]
+    if enemyname == "Ogre":
+      i=1
+    elif enemyname == "Drac":
+      i=0
+    enemyHP = randint(min[i],max[i])
     enemyMP = randint(5,20)
     #Below is the enemy's name, perhaps you could change this to a list and then shuffle the list, such as we did for the villager above.
-    enemyname = "Ogre"
     print "\nSuddenly you hear a roar, and from the shadows you see an "+enemyname+" coming straight at you...."
     #print enemyname
     print "Your enemy has " + " " + str(enemyHP) + " " + "Health Points"
@@ -127,6 +136,7 @@ global HP
 global MP
 global move
 global enemyHP
+global i
 print "Welcome to the land of Narule, " + name
 #Sleep is Python's way of pausing the game for a specified number of seconds
 sleep(2)
@@ -201,8 +211,9 @@ if fight == "y":
 	     MP = MP +mp 
 	     print "\nyour Magicpoints: " + str(MP) +"\n"
 	else:	
-        	enemyhit = randint(0,5)
-        	print "The ogre swings a club at you and causes " + str(enemyhit) + " of damage"
+                min =[8,5]
+        	enemyhit = randint(0,min[i])
+        	print "The " + enemyname + " swings a club at you and causes " + str(enemyhit) + " of damage"
         	HP = HP - enemyhit
         	print HP
         	if HP < 1:
